@@ -1,0 +1,22 @@
+# Retrieval-Augmented Generation (RAG)
+
+**Retrieval-Augmented Generation (RAG)** is an AI architecture that enhances the capabilities of Large Language Models (LLMs) by combining information retrieval with text generation. Instead of relying only on the knowledge stored during the model's training, RAG retrieves relevant information from external data sources such as PDFs, documents, websites, databases, or knowledge bases and provides it to the LLM as additional context before generating a response.
+
+The RAG process begins when a user submits a query. The query is converted into a numerical vector, called an **embedding**, using an embedding model. This embedding is compared with the embeddings stored in a **vector database** (such as FAISS, ChromaDB, Pinecone, or Qdrant) to find the most relevant document chunks. The retrieved information is then combined with the user's question and passed to the LLM, which generates an answer based on the retrieved context rather than relying solely on its internal knowledge.
+
+A typical RAG pipeline consists of the following steps:
+
+1. Load documents from various sources using **Document Loaders**.
+2. Split large documents into smaller chunks using a **Text Splitter**.
+3. Convert each chunk into vector embeddings using an **Embedding Model**.
+4. Store the embeddings in a **Vector Database**.
+5. When a user asks a question, convert the query into an embedding.
+6. Retrieve the most relevant document chunks from the vector database.
+7. Provide the retrieved context along with the user's query to the **Large Language Model**.
+8. Generate an accurate and context-aware response.
+
+One of the biggest advantages of RAG is that it significantly **reduces hallucinations**, as the LLM generates answers using retrieved factual information instead of guessing. It also allows AI applications to use **private or domain-specific knowledge**, such as company documents, legal contracts, medical records, research papers, or product manuals, without retraining the model. Additionally, updating the knowledge base only requires adding or modifying documents in the vector database, eliminating the need for expensive model retraining.
+
+RAG is widely used in enterprise chatbots, customer support systems, document question-answering applications, legal assistants, healthcare knowledge systems, financial advisory platforms, research assistants, and internal company knowledge bases. Popular technologies used for building RAG applications include **LangChain**, **LlamaIndex**, **Haystack**, embedding models such as **Cohere Embeddings**, **OpenAI Embeddings**, and **Hugging Face Embeddings**, vector databases like **FAISS**, **ChromaDB**, **Pinecone**, and LLMs such as **GPT**, **Gemini**, **Claude**, **Llama**, and **Mistral**.
+
+In conclusion, Retrieval-Augmented Generation is one of the most important architectures in modern Generative AI because it enables LLMs to provide accurate, up-to-date, and context-aware responses by leveraging external knowledge sources. This makes RAG an essential technique for building reliable AI applications that require access to dynamic or private information.
